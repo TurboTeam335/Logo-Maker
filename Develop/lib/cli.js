@@ -53,9 +53,12 @@ class CLI {
         throw new Error(`Invalid shape: ${shape}`);
     }
     shapeObj.setColor(shapeColor);
-    console.log(shapeObj)
-    const svg = new SVG(text, textColor, shapeObj.render, shapeObj.color);
-    console.log(svg)
+    console.log(textColor);
+    const svg = new SVG(shapeObj);
+    svg.createTextSvg(text, textColor);
+    svg.createShape(shapeObj);
+
+    //console.log(svg)
 
     const svgMarkup = svg.render();
 
